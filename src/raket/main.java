@@ -7,6 +7,8 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class main extends Application {
@@ -28,9 +30,9 @@ public class main extends Application {
 
 		Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-		raket bil = new raket(raket_SIZE);
+		raket raket = new raket(raket_SIZE);
 
-		root.getChildren().add(bil);
+		root.getChildren().add(raket);
 
 		scene.setOnKeyPressed(event -> {
 
@@ -46,6 +48,16 @@ public class main extends Application {
 
 				keys.remove(event.getCode());
 			}
+
+			KeyCode key = event.getCode();
+
+			switch (key) {
+
+			case B:
+				raket.moveUp();
+				raket.fire.setFill(Color.TRANSPARENT);
+				break;
+			}
 		});
 
 		AnimationTimer at = new AnimationTimer() {
@@ -60,45 +72,33 @@ public class main extends Application {
 					switch (key) {
 
 					case W:
-					case UP:
-						bil.moveUp();
-						break;
-					case S:
-					case DOWN:
-						bil.moveDown();
-						break;
-					case A:
-					case LEFT:
-						bil.moveLeft();
+						raket.moveUp();
 						break;
 					case D:
-					case RIGHT:
-						bil.moveRight();
+						raket.setRotate(raket.getRotate() + 2);
 						break;
-					case SPACE:
-						bil.tuta(); // LOL
-						bil.changeColor();
-						break;
-					case E:
-						bil.setRotate(bil.getRotate() + 2);
-						break;
-					case Q:
-						bil.setRotate(bil.getRotate() - 2);
+					case A:
+						raket.setRotate(raket.getRotate() - 2);
 						break;
 					default:
 						break;
+
+					case B:
+						raket.moveUp();
+						raket.fire.setFill(Color.RED);
+						break;
 					}
 
-					if (bil.getTranslateX() > WINDOW_WIDTH) {
-						bil.setTranslateX(0 - raket_SIZE);
-					} else if (bil.getTranslateX() < -raket_SIZE) {
-						bil.setTranslateX(WINDOW_WIDTH);
+					if (raket.getTranslateX() > WINDOW_WIDTH) {
+						raket.setTranslateX(0 - raket_SIZE);
+					} else if (raket.getTranslateX() < -raket_SIZE) {
+						raket.setTranslateX(WINDOW_WIDTH);
 					}
 
-					if (bil.getTranslateY() > WINDOW_HEIGHT) {
-						bil.setTranslateY(0 - raket_SIZE);
-					} else if (bil.getTranslateY() < -raket_SIZE) {
-						bil.setTranslateY(WINDOW_HEIGHT);
+					if (raket.getTranslateY() > WINDOW_HEIGHT) {
+						raket.setTranslateY(0 - raket_SIZE);
+					} else if (raket.getTranslateY() < -raket_SIZE) {
+						raket.setTranslateY(WINDOW_HEIGHT);
 					}
 
 				}
