@@ -8,7 +8,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 public class main extends Application {
@@ -56,6 +55,8 @@ public class main extends Application {
 			case B:
 				raket.moveUp();
 				raket.fire.setFill(Color.TRANSPARENT);
+				break;
+			default:
 				break;
 			}
 		});
