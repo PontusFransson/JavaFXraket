@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 public class Studsboll extends Circle {
 
 	double vinkel = Math.random() * 90 + 45;
-	double hastighet = 10;
+	double hastighet = 7.5;
 	double xhastighet;
 	double yhastighet;
 

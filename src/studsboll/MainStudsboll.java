@@ -37,10 +37,10 @@ public class MainStudsboll extends Application {
 			@Override
 			public void handle(long now) {
 
-				for(Studsboll b : studsbollar) {
+				for(Studsboll bollar : studsbollar) {
 					
 					
-					b.bounce();
+					bollar.bounce();
 					
 					
 				}
