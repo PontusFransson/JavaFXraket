@@ -18,7 +18,7 @@ public class mainRaket extends Application {
 
 	public static final ArrayList<KeyCode> keys = new ArrayList<KeyCode>();
 
-	public static void main1(String[] args) {
+	public static void main(String[] args) {
 		launch();
 	}
 
@@ -27,7 +27,7 @@ public class mainRaket extends Application {
 
 		Group root = new Group();
 
-		Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+		Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT, Color.DARKSLATEGRAY);
 
 		raket raket = new raket(raket_SIZE);
 
@@ -52,8 +52,8 @@ public class mainRaket extends Application {
 
 			switch (key) {
 
-			case B:
-				raket.moveUp();
+			case SPACE:
+				raket.moveUp1();
 				raket.fire.setFill(Color.TRANSPARENT);
 				break;
 			default:
@@ -84,8 +84,8 @@ public class mainRaket extends Application {
 					default:
 						break;
 
-					case B:
-						raket.moveUp();
+					case SPACE:
+						raket.moveUp1();
 						raket.fire.setFill(Color.RED);
 						break;
 					}

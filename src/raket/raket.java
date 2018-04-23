@@ -45,5 +45,14 @@ public class raket extends Group {
 		this.setTranslateX(this.getTranslateX() + Math.cos(deg) * 5);
 
 	}
+	
+	public void moveUp1() {
+		double deg = this.getRotate()-90;
+		deg = Math.toRadians(deg);
+
+		this.setTranslateY(this.getTranslateY() + Math.sin(deg) * 30);
+		this.setTranslateX(this.getTranslateX() + Math.cos(deg) * 30);
+
+	}
 
 }
